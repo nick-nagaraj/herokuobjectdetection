@@ -2,3 +2,9 @@ libsm6
 libxrender1
 libfontconfig1
 libice6
+libxext6
+libxrender-dev
+libglib2.0-0
+protobuf-compiler
+python3-pil
+python3-lxml
