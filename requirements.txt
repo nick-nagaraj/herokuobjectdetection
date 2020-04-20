@@ -4,6 +4,7 @@ flask
 pillow
 gunicorn
 aiofiles
+pathlib
 uvicorn
 aiohttp
 asyncio
