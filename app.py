@@ -139,6 +139,7 @@ async def analyze(request):
         string += i
     #img = open_image(BytesIO(img_bytes))
     prediction = string
+    print (prediction)
     return JSONResponse({'result': str(prediction)})
 
 if __name__ == "__main__":
