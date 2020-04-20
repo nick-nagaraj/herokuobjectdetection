@@ -52,8 +52,8 @@ async def analyze(request):
     font = cv.FONT_HERSHEY_SIMPLEX
     # Read the graph.
 
-    cvNet = cv.dnn.readNetFromTensorflow('model/frozen_inference_graph.pb',
-                                                 'model/faster_rcnn_inception_v2_coco.config')
+    cvNet = cv.dnn.readNetFromTensorflow('model/frozen_inference_graph_mob.pb',
+                                                 'ssd_mobilenet_v1_coco_2017_11_17.pbtxt')
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     cvNet.setInput(cv.dnn.blobFromImage(img, 0.007843, (300, 300), (127.5, 127.5, 127.5), swapRB=True, crop=False))
     detections = cvNet.forward()
