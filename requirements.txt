@@ -3,7 +3,6 @@ numpy
 flask
 pillow
 gunicorn
-tensorflow==1.15.0
 fastai==1.0.52
 aiofiles==0.4.0
 uvicorn==0.7.1
