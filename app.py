@@ -55,22 +55,22 @@ async def analyze(request):
     detections = cvNet.forward()
 
         # Visualize detected bounding boxes.
-        for i in range(detections.shape[2]):
-            confidence = detections[0, 0, i, 2]
-            classId = int(detections[0, 0, i, 1])
+    for i in range(detections.shape[2]):
+        confidence = detections[0, 0, i, 2]
+        classId = int(detections[0, 0, i, 1])
 
-            if confidence > 0.8:
-                x = int(detections[0, 0, i, 3] * cols)
-                y = int(detections[0, 0, i, 4] * rows)
-                right = int(detections[0, 0, i, 5] * cols)
-                bottom = int(detections[0, 0, i, 6] * rows)
-                x_cords = np.append(x_cords,int(x))
-                y_cords = np.append(y_cords,int(y))
-                right_cords = np.append(right_cords,int(right))
-                bottom_cords = np.append(bottom_cords,int(bottom))
-                chars = np.append(chars,str(dict[classId]))
-                cv.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
-                cv.putText(img, str(dict[classId]), (int(x), int(y) - 5), font, 0.8, (0,0,255), 2, cv.LINE_AA)
+        if confidence > 0.8:
+            x = int(detections[0, 0, i, 3] * cols)
+            y = int(detections[0, 0, i, 4] * rows)
+            right = int(detections[0, 0, i, 5] * cols)
+            bottom = int(detections[0, 0, i, 6] * rows)
+            x_cords = np.append(x_cords,int(x))
+            y_cords = np.append(y_cords,int(y))
+            right_cords = np.append(right_cords,int(right))
+            bottom_cords = np.append(bottom_cords,int(bottom))
+            chars = np.append(chars,str(dict[classId]))
+            cv.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
+            cv.putText(img, str(dict[classId]), (int(x), int(y) - 5), font, 0.8, (0,0,255), 2, cv.LINE_AA)
 
     cords = []
     cords_line_2 = []
