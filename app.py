@@ -19,7 +19,7 @@ app.mount('/static', StaticFiles(directory='static'))
 
 @app.route('/')
 async def homepage(request):
-    html_file = 'view/index.html'
+    html_file = view/index.html
     return HTMLResponse(html_file.open().read())
 
 
