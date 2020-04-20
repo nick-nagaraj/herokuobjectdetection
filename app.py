@@ -13,7 +13,6 @@ detector = Detector()
 
 # detector.detectNumberPlate('twocar.jpg')
 
-
 @app.route("/")
 def index():
     return render_template('index.html')
