@@ -55,7 +55,7 @@ async def analyze(request):
     cvNet = cv.dnn.readNetFromTensorflow('model/frozen_inference_graph.pb',
                                                  'model/faster_rcnn_inception_v2_coco.config')
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
-    cvNet.setInput(cv.dnn.blobFromImage(img, 0.007843, (300, 300), (127.5, 127.5, 127.5), swapRB=True, crop=False))
+    cvNet.setInput(cv.dnn.blobFromImage(img, 0.007843, (100, 100), (127.5, 127.5, 127.5), swapRB=True, crop=False))
     detections = cvNet.forward()
 
         # Visualize detected bounding boxes.
