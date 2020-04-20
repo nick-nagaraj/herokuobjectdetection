@@ -17,13 +17,13 @@ export_file_name = 'export.pkl'
 
 app = Starlette(debug=True)
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
-app.mount('/static', StaticFiles(directory='static'))
+app.mount('/static', StaticFiles(directory='app/static'))
 
 path = Path(__file__).parent
 
 @app.route('/')
 async def homepage(request):
-    html_file = path / 'view' / 'index.html'
+    html_file = path / 'app' / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
 
